@@ -1,0 +1,40 @@
+# أرث التعليم العربي — Irth Arabic Education
+# Developed by UTM Technology — Dubai (https://utm.ae)
+
+# dependencies
+node_modules
+/.pnp
+.pnp.*
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+
+# debug & logs
+*.log
+dev.log
+server.log
+
+# environment & secrets — never publish these
+.env
+.env.*
+!.env.example
+.ai-config
+
+# local database (schema + seed scripts are the source of truth)
+db/*.db
+db/*.db-journal
+
+# user uploads (books, sponsor images — content lives outside the repo)
+/uploads
+
+# local dev scratch files
+local-*

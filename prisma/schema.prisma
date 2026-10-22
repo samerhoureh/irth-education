@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// دولة عربية
+model Country {
+  id             String   @id @default(cuid())
+  code           String   @unique // SY, EG, SA ...
+  nameAr         String   // سوريا، مصر ...
+  flag           String   // علم بإيموجي
+  region         String   // الشام، الخليج، شمال أفريقيا ...
+  culturePersona String   // وصف الثقافة واللهجة للنموذج الذكي
+  curriculumNote String   // ملاحظة عن المنهج المعتمد
+  order          Int      @default(0) // ترتيب العرض
+  stages         Stage[]
+  createdAt      DateTime @default(now())
+}
+
+// مرحلة تعليمية (متوسطة / ثانوية) لكل دولة
+model Stage {
+  id        String    @id @default(cuid())
+  key       String // middle | secondary
+  nameAr    String // المرحلة المتوسطة / المرحلة الثانوية
+  descAr    String?
+  icon      String?
+  countryId String
+  country   Country   @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  grades    Grade[]
+  @@unique([countryId, key])
+}
+
+// صف دراسي داخل مرحلة (الأول المتوسط... الصف العاشر، الحادي عشر أدبي/علمي ...)
+model Grade {
+  id       String    @id @default(cuid())
+  nameAr   String // الأول المتوسط، الحادي عشر (علمي) ...
+  stream   String    @default("NONE") // NONE | LITERARY | SCIENTIFIC
+  order    Int       @default(0)
+  stageId  String
+  stage    Stage     @relation(fields: [stageId], references: [id], onDelete: Cascade)
+  subjects Subject[]
+  @@unique([stageId, nameAr])
+}
+
+// مادة دراسية ضمن صف دراسي في دولة
+model Subject {
+  id      String    @id @default(cuid())
+  nameAr  String
+  icon    String? // إيموجي رمزي للمادة
+  color   String? // لون تقريبي لبطاقة المادة
+  gender  String? // GIRLS (مادة بنات) | BOYS (مادة بنين) | null (الجميع)
+  order   Int       @default(0) // ترتيب عرض المادة وفق المنهج الرسمي
+  gradeId String
+  grade   Grade     @relation(fields: [gradeId], references: [id], onDelete: Cascade)
+  books   Book[]
+  @@unique([gradeId, nameAr])
+}
+
+// كتاب / ملف تعليمي مرفوع للأدمن
+model Book {
+  id         String   @id @default(cuid())
+  titleAr    String
+  fileName   String // اسم الملف الأصلي
+  storedName String // الاسم المخزن على القرص
+  mimeType   String?
+  size       Int      @default(0)
+  subjectId  String
+  subject    Subject  @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+}
+
+// مستخدم المنارة: طالب / داعم / أدمن
+model User {
+  id            String               @id @default(cuid())
+  name          String
+  email         String               @unique
+  passwordHash  String // scrypt: salt:hash
+  role          String               @default("STUDENT") // STUDENT | TEACHER | SPONSOR
+  sponsorId     String? // الطالب يُنشأ تحت مظلة داعم (حساب الطالب مُموّل من رعايته)
+  sponsor       User?                @relation("SponsorUmbrella", fields: [sponsorId], references: [id], onDelete: SetNull)
+  sponsoredStudents User[]           @relation("SponsorUmbrella")
+  imageUrl      String? // صورة/شعار الداعم (اسم الملف المخزّن في uploads/sponsors)
+  bio           String? // نبذة الداعم التي يكتبها بنفسه وتظهر في لوحة الشرف
+  createdAt     DateTime             @default(now())
+  sponsorships  SponsorshipRequest[]
+}
+
+// طلب رعاية من داعم (كل 100$ = 200 حساب طالب)
+model SponsorshipRequest {
+  id            String     @id @default(cuid())
+  userId        String
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  packageKey    String // BRONZE | SILVER | GOLD
+  amountUsd     Int // قيمة الباقة بالدولار
+  studentsCount Int // عدد حسابات الطلاب الممولة
+  orgName       String? // اسم الجهة الداعمة (اختياري)
+  contactNote   String? // ملاحظة تواصل
+  proofUrl      String? // رابط إثبات التحويل (اختياري)
+  status        String     @default("PENDING") // PENDING | APPROVED | REJECTED
+  adminNote     String?
+  createdAt     DateTime   @default(now())
+  reviewedAt    DateTime?
+}

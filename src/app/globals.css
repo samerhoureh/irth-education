@@ -1,0 +1,279 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* ═══ الثيم الليلي الملكي: بنفسجي ملكي داكن + ذهبي + أبيض عاجي ═══ */
+  --radius: 0.625rem;
+  --background: oklch(0.165 0.045 300);
+  --foreground: oklch(0.97 0.008 310);
+  --card: oklch(0.205 0.06 298);
+  --card-foreground: oklch(0.97 0.008 310);
+  --popover: oklch(0.19 0.055 298);
+  --popover-foreground: oklch(0.97 0.008 310);
+  --primary: oklch(0.78 0.13 85);
+  --primary-foreground: oklch(0.2 0.07 298);
+  --secondary: oklch(0.26 0.06 296);
+  --secondary-foreground: oklch(0.97 0.008 310);
+  --muted: oklch(0.26 0.055 296);
+  --muted-foreground: oklch(0.8 0.05 300);
+  --accent: oklch(0.28 0.06 295);
+  --accent-foreground: oklch(0.97 0.008 310);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.97 0 0 / 12%);
+  --input: oklch(0.97 0 0 / 14%);
+  --ring: oklch(0.75 0.125 85);
+  --chart-1: oklch(0.78 0.13 85);
+  --chart-2: oklch(0.62 0.19 300);
+  --chart-3: oklch(0.68 0.2 320);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.205 0.06 298);
+  --sidebar-foreground: oklch(0.97 0.008 310);
+  --sidebar-primary: oklch(0.78 0.13 85);
+  --sidebar-primary-foreground: oklch(0.2 0.07 298);
+  --sidebar-accent: oklch(0.26 0.055 296);
+  --sidebar-accent-foreground: oklch(0.97 0.008 310);
+  --sidebar-border: oklch(0.97 0 0 / 12%);
+  --sidebar-ring: oklch(0.75 0.125 85);
+}
+
+.dark {
+  --background: oklch(0.15 0.042 300);
+  --foreground: oklch(0.97 0.008 310);
+  --card: oklch(0.195 0.058 298);
+  --card-foreground: oklch(0.97 0.008 310);
+  --popover: oklch(0.18 0.05 298);
+  --popover-foreground: oklch(0.97 0.008 310);
+  --primary: oklch(0.78 0.13 85);
+  --primary-foreground: oklch(0.2 0.07 298);
+  --secondary: oklch(0.25 0.058 296);
+  --secondary-foreground: oklch(0.97 0.008 310);
+  --muted: oklch(0.25 0.055 296);
+  --muted-foreground: oklch(0.8 0.05 300);
+  --accent: oklch(0.27 0.06 295);
+  --accent-foreground: oklch(0.97 0.008 310);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.97 0 0 / 12%);
+  --input: oklch(0.97 0 0 / 14%);
+  --ring: oklch(0.75 0.125 85);
+  --chart-1: oklch(0.78 0.13 85);
+  --chart-2: oklch(0.62 0.19 300);
+  --chart-3: oklch(0.68 0.2 320);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.195 0.058 298);
+  --sidebar-foreground: oklch(0.97 0.008 310);
+  --sidebar-primary: oklch(0.78 0.13 85);
+  --sidebar-primary-foreground: oklch(0.2 0.07 298);
+  --sidebar-accent: oklch(0.25 0.055 296);
+  --sidebar-accent-foreground: oklch(0.97 0.008 310);
+  --sidebar-border: oklch(0.97 0 0 / 12%);
+  --sidebar-ring: oklch(0.75 0.125 85);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ═══════════ طبقة الفخامة ═══════════ */
+
+/* خلفية بنقشة إسلامية هندسية خفيفة */
+.pattern-arabesque {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%232a1240' stroke-width='1'%3E%3Cpath d='M48 4 L58 38 L92 48 L58 58 L48 92 L38 58 L4 48 L38 38 Z'/%3E%3Ccircle cx='48' cy='48' r='14'/%3E%3Ccircle cx='0' cy='0' r='24'/%3E%3Ccircle cx='96' cy='0' r='24'/%3E%3Ccircle cx='0' cy='96' r='24'/%3E%3Ccircle cx='96' cy='96' r='24'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 96px 96px;
+}
+
+.pattern-arabesque-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1'%3E%3Cpath d='M48 4 L58 38 L92 48 L58 58 L48 92 L38 58 L4 48 L38 38 Z'/%3E%3Ccircle cx='48' cy='48' r='14'/%3E%3Ccircle cx='0' cy='0' r='24'/%3E%3Ccircle cx='96' cy='0' r='24'/%3E%3Ccircle cx='0' cy='96' r='24'/%3E%3Ccircle cx='96' cy='96' r='24'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 96px 96px;
+}
+
+/* نص ذهبي متدرج */
+.gold-text {
+  background: linear-gradient(135deg, #f3d47c 0%, #d4a72c 40%, #a87b1a 70%, #e9c964 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* شريط ذهبي متدرج */
+.gold-bar {
+  background: linear-gradient(135deg, #f0d070 0%, #c9992b 45%, #a87b1a 60%, #e2c060 100%);
+}
+
+/* ظل فخم طبقي (داكن) */
+.luxury-shadow {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.25),
+    0 4px 12px rgba(0, 0, 0, 0.28),
+    0 12px 32px rgba(0, 0, 0, 0.30);
+}
+
+.luxury-shadow-lg {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.28),
+    0 8px 20px rgba(0, 0, 0, 0.32),
+    0 20px 48px rgba(0, 0, 0, 0.38);
+}
+
+/* بطاقة داكنة ملكية (بنفسجي ملكي بحد ذهبي رفيع) */
+.card-royal {
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.055) 0%, rgba(255, 255, 255, 0.015) 100%), #2a1240;
+  border: 1px solid rgba(212, 167, 44, 0.22);
+}
+.card-royal:hover {
+  border-color: rgba(212, 167, 44, 0.5);
+}
+
+/* حقل إدخال داكن */
+.field-royal {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #f5f0fb;
+}
+.field-royal::placeholder {
+  color: rgba(221, 214, 254, 0.45);
+}
+.field-royal:focus {
+  outline: none;
+  border-color: rgba(212, 167, 44, 0.6);
+  box-shadow: 0 0 0 2px rgba(212, 167, 44, 0.25);
+}
+
+/* ═══ بطاقة بيضاء عاجية فاخرة بإطار ذهبي متدرج ═══ */
+.card-paper {
+  --paper-grad: linear-gradient(140deg, #f3d47c 0%, #d4a72c 30%, #a87b1a 52%, #d4a72c 74%, #f0d070 100%);
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(170deg, #ffffff 0%, #fdfcfe 55%, #f5f0fb 100%) padding-box,
+    var(--paper-grad) border-box;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.16),
+    0 6px 16px rgba(0, 0, 0, 0.28),
+    0 14px 32px rgba(0, 0, 0, 0.22);
+}
+.card-paper:hover {
+  --paper-grad: linear-gradient(140deg, #ffe6a3 0%, #e2b93f 30%, #b3881f 52%, #e2b93f 74%, #ffe6a3 100%);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.18),
+    0 10px 24px rgba(0, 0, 0, 0.32),
+    0 20px 44px rgba(0, 0, 0, 0.26);
+}
+
+/* ═══ أرضية قسم بنفسجية ملكية متدرجة (يوضع فوقها زخرفة شفافة) ═══ */
+.section-royal {
+  background:
+    radial-gradient(120% 90% at 88% 0%, rgba(168, 85, 247, 0.15) 0%, transparent 55%),
+    radial-gradient(100% 80% at 8% 100%, rgba(139, 92, 246, 0.10) 0%, transparent 60%),
+    linear-gradient(168deg, #3a1660 0%, #2a1044 38%, #1d0a30 74%, #140723 100%);
+}
+
+/* ═══ نقشة زخرفة إسلامية شفافة (نجوم ثمانية متشابكة) ═══ */
+.pattern-zakhrafa {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1'%3E%3Crect x='36' y='36' width='48' height='48'/%3E%3Crect x='36' y='36' width='48' height='48' transform='rotate(45 60 60)'/%3E%3Ccircle cx='60' cy='60' r='13'/%3E%3Ccircle cx='60' cy='60' r='5'/%3E%3Cpath d='M60 0 L68 8 L60 16 L52 8 Z'/%3E%3Cpath d='M60 104 L68 112 L60 120 L52 112 Z'/%3E%3Cpath d='M0 60 L8 52 L16 60 L8 68 Z'/%3E%3Cpath d='M104 60 L112 52 L120 60 L112 68 Z'/%3E%3Cpath d='M0 0 L10 10 M120 0 L110 10 M0 120 L10 110 M120 120 L110 110'/%3E%3Ccircle cx='0' cy='0' r='6'/%3E%3Ccircle cx='120' cy='0' r='6'/%3E%3Ccircle cx='0' cy='120' r='6'/%3E%3Ccircle cx='120' cy='120' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+/* بطاقة زجاجية داكنة */
+.glass-dark {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* إطار ذهبي رفيع */
+.gold-ring {
+  box-shadow: inset 0 0 0 1px rgba(212, 167, 44, 0.35);
+}
+
+/* فاصل مزخرف */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, transparent, rgba(212, 167, 44, 0.45), transparent);
+}
+
+/* لمعان ذهبي متحرك */
+@keyframes gold-shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+.gold-shimmer {
+  background: linear-gradient(110deg, #d4a72c 30%, #fbe8a6 50%, #d4a72c 70%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shimmer 6s linear infinite;
+}
+
+/* أشرطة تمرير مخصصة أنيقة (ذهبية) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 167, 44, 0.55) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(212, 167, 44, 0.55);
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
