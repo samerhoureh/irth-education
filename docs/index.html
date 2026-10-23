@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أرث التعليم العربي — لكل طالب عربي معلم خصوصي</title>
+<meta name="description" content="منصة تعليمية عربية شاملة: مناهج 22 دولة عربية، معلم ذكي خاص بثقافة كل بلد، كتب مدرسية، وبرنامج دعم الرعاة — تطوير UTM Technology دبي">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#150a20; --bg2:#1d1130; --card:#241740; --line:rgba(201,153,43,.25);
+    --gold:#c9992b; --amber:#fcd34d; --text:#f3ecdd; --muted:#b9aed0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;
+    background-image:radial-gradient(circle at 80% -10%,rgba(201,153,43,.12),transparent 45%),
+    radial-gradient(circle at 0% 30%,rgba(126,72,201,.14),transparent 40%)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  a{color:var(--amber)}
+  header{position:sticky;top:0;z-index:50;background:rgba(21,10,32,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.25rem}
+  .brand img{width:44px;height:44px;border-radius:12px}
+  .brand small{display:block;font-size:.68rem;color:var(--gold);font-weight:500}
+  .nav .cta{display:flex;gap:10px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:14px;font-weight:700;text-decoration:none;transition:.2s;font-size:.95rem}
+  .btn-gold{background:linear-gradient(135deg,#e6b84c,#c9992b);color:#241505;box-shadow:0 4px 18px rgba(201,153,43,.35)}
+  .btn-gold:hover{transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--gold)}
+  .hero{text-align:center;padding:84px 0 60px}
+  .badge{display:inline-block;background:rgba(201,153,43,.14);border:1px solid var(--line);color:var(--amber);border-radius:999px;padding:6px 18px;font-size:.85rem;font-weight:700}
+  .hero h1{font-size:clamp(2.1rem,6vw,3.6rem);font-weight:900;margin:22px 0 10px}
+  .hero h1 span{color:var(--gold)}
+  .hero p{color:var(--muted);max-width:640px;margin:0 auto;font-size:1.1rem}
+  .stats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:34px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 26px;min-width:130px}
+  .stat b{display:block;font-size:1.6rem;color:var(--amber)}
+  .stat span{color:var(--muted);font-size:.85rem}
+  section{padding:56px 0}
+  h2{font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:900;text-align:center;margin-bottom:8px}
+  h2 em{color:var(--gold);font-style:normal}
+  .sub{text-align:center;color:var(--muted);margin-bottom:36px}
+  .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  figure{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s}
+  figure:hover{transform:translateY(-4px);border-color:var(--gold)}
+  figure img{width:100%;display:block}
+  figcaption{padding:13px 18px;font-size:.92rem;color:var(--muted);border-top:1px solid rgba(201,153,43,.12)}
+  figcaption b{color:var(--text)}
+  .feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+  .feat .ic{font-size:1.9rem;margin-bottom:10px}
+  .feat h3{font-size:1.08rem;margin-bottom:6px}
+  .feat p{color:var(--muted);font-size:.93rem}
+  .try{background:linear-gradient(160deg,var(--bg2),#2a1a48);border:1px solid var(--line);border-radius:24px;padding:38px 28px;text-align:center}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:28px 0}
+  .step{background:rgba(21,10,32,.55);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .step b{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#241505;margin-bottom:10px;font-size:1.05rem}
+  .note{color:var(--muted);font-size:.88rem;margin-top:14px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:34px 0;text-align:center;color:var(--muted);font-size:.92rem}
+  footer b{color:var(--text)}
+  .utm{margin-top:10px;padding-top:18px;border-top:1px dashed var(--line)}
+  .utm a{font-weight:800;font-size:1.02rem;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="شعار أرث التعليم العربي">
+      <div>أرث التعليم العربي<small>لكل طالب عربي معلم خصوصي يدعم مسيرته التعليمية</small></div>
+    </div>
+    <nav class="cta" aria-label="روابط سريعة">
+      <a class="btn btn-ghost" href="https://github.com/samerhoureh/irth-education">المستودع ⭐</a>
+      <a class="btn btn-gold" href="#try">جرّب الآن</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="hero">
+      <span class="badge">✦ أول مشروع عربي يضم مناهج جميع الدول العربية تحت سقف واحد</span>
+      <h1>أرث <span>التعليم العربي</span></h1>
+      <p>كتبُ ومناهجُ مطابقةٌ للمناهج الرسمية المعتمدة في 22 دولة عربية، مع معلمٍ ذكيٍّ خصوصيٍّ من بلد الطالب — بلهجته ومصطلحاته — يراجع معه دروسه من كتاب مدرسته، بحساباتٍ مجانية بفضل داعمي التعليم العربي.</p>
+      <div class="stats">
+        <div class="stat"><b>22</b><span>دولة عربية</span></div>
+        <div class="stat"><b>8</b><span>مراحل تعليمية</span></div>
+        <div class="stat"><b>🤖</b><span>معلم ذكي بثقافة كل بلد</span></div>
+        <div class="stat"><b>💯</b><span>مجاني بفضل الرعاة</span></div>
+      </div>
+    </div>
+
+    <section id="shots">
+      <h2>جولة <em>بصرية</em> في المنصة</h2>
+      <p class="sub">لقطات حقيقية من واجهات أرث التعليم العربي</p>
+      <div class="shots">
+        <figure><a href="screenshots/01-home-desktop.png" target="_blank" rel="noopener"><img src="screenshots/01-home-desktop.png" alt="الصفحة الرئيسية: اختر دولتك وابدأ رحلة التعلم" loading="lazy"></a><figcaption><b>الصفحة الرئيسية</b> — اختر دولتك وابدأ رحلة التعلم</figcaption></figure>
+        <figure><a href="screenshots/02-stages.png" target="_blank" rel="noopener"><img src="screenshots/02-stages.png" alt="المراحل والصفوف لكل دولة" loading="lazy"></a><figcaption><b>المراحل والصفوف</b> — متوسطة وثانوية بمساراتها كما في بلدك</figcaption></figure>
+        <figure><a href="screenshots/03-subjects.png" target="_blank" rel="noopener"><img src="screenshots/03-subjects.png" alt="المواد الدراسية الرسمية" loading="lazy"></a><figcaption><b>المواد الدراسية</b> — مطابقة للجداول الرسمية المعتمدة</figcaption></figure>
+        <figure><a href="screenshots/04-lesson.png" target="_blank" rel="noopener"><img src="screenshots/04-lesson.png" alt="المعلم الذكي يشرح الدرس" loading="lazy"></a><figcaption><b>المعلم الذكي</b> — يشرح خطوة بخطوة بلهجة بلد الطالب وبمصطلحات كتبه</figcaption></figure>
+        <figure><a href="screenshots/05-sponsors.png" target="_blank" rel="noopener"><img src="screenshots/05-sponsors.png" alt="لوحة الشرف للداعمين" loading="lazy"></a><figcaption><b>لوحة الشرف للداعمين</b> — قائمة الداعمين من الأعلى للأقل حسب عدد المستفيدين</figcaption></figure>
+        <figure><a href="screenshots/06-packages.png" target="_blank" rel="noopener"><img src="screenshots/06-packages.png" alt="لوحة الشرف والتسجيل من خلال الداعم التالي" loading="lazy"></a><figcaption><b>التسجيل المجاني</b> — احصل على حسابك التعليمي من خلال «الداعم التالي»</figcaption></figure>
+        <figure><a href="screenshots/07-home-mobile.png" target="_blank" rel="noopener"><img src="screenshots/07-home-mobile.png" alt="واجهة الجوال" loading="lazy"></a><figcaption><b>واجهة الجوال</b> — تطبيق PWA يُثبَّت على الهاتف</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="feats">
+      <h2>ماذا يقدّم <em>أرث</em>؟</h2>
+      <p class="sub">التطبيق لا يعني إلغاء المدرسة والمعلم الحقيقي — بل هو سندٌ ودعمٌ كمدرسِ خصوصيٍّ لمراجعة دروس الطالب من خلال كتاب المدرسة</p>
+      <div class="feats">
+        <div class="feat"><div class="ic">🌍</div><h3>مناهج 22 دولة عربية</h3><p>الشام والخليج وشمال أفريقيا والقرن الأفريقي — موادّ رسمية بأسمائها الحرفية كما في كتب كل دولة.</p></div>
+        <div class="feat"><div class="ic">🤖</div><h3>معلم خصوصي من بلدك</h3><p>يتقمص ثقافة بلد الطالب ولهجته في الترحيب والتحفيز، ويشرح بالفصحى المبسطة الراقية وبتدرّجٍ وقور.</p></div>
+        <div class="feat"><div class="ic">📸</div><h3>صوّر صفحة كتابك</h3><p>ارفع صورة صفحة الكتاب فيتعرّف عليها المعلم ويشرح الدرس خطوة بخطوة وفق منهج بلدك.</p></div>
+        <div class="feat"><div class="ic">🎙️</div><h3>رسائل صوتية</h3><p>سجّل سؤالك بصوتك فيتحوّل إلى نص ويتفاعل معه المعلم — تحويل كلام إلى نص ونص إلى كلام.</p></div>
+        <div class="feat"><div class="ic">💛</div><h3>برنامج دعم الرعاة</h3><p>باقات دعم التعليم العربي: كل 100$ توفّر 200 حساب طالب — ولوحة شرف كريمة تعرض المستفيدين فقط.</p></div>
+        <div class="feat"><div class="ic">📱</div><h3>يعمل كتطبيق</h3><p>PWA بواجهة عربية كاملة — يُثبَّت على الهاتف ويستخدم الميكروفون والكاميرا للتعلم.</p></div>
+      </div>
+    </section>
+
+    <section id="try">
+      <div class="try">
+        <h2>شغّل المنصة <em>الآن</em> من خلال GitHub</h2>
+        <p class="sub" style="margin-bottom:8px">تُشغَّل النسخة الكاملة (واجهات + قاعدة بيانات + معلم ذكي) داخل بيئة GitHub Codespaces</p>
+        <div class="steps">
+          <div class="step"><b>1</b><p>افتح صفحة المستودع واضغط زر <b>Code</b> الأخضر ثم تبويب <b>Codespaces</b></p></div>
+          <div class="step"><b>2</b><p>اضغط <b>Create codespace</b> — تُبنى البيئة وتُبذر قاعدة البيانات تلقائياً</p></div>
+          <div class="step"><b>3</b><p>عند جهوزية الخادم اضغط على منفذ <b>3000</b> في تبويب Ports لفتح المعاينة</p></div>
+        </div>
+        <a class="btn btn-gold" href="https://github.com/codespaces/new?hide_repo_select=true&repo=samerhoureh%2Firth-education">🚀 فتح التطبيق في Codespaces</a>
+        <p class="note">حسابات تجريبية تُنشأ تلقائياً وتظهر في الطرفية بعد البناء — ووظائف المعلم الذكي تحتاج ضبط بوابة ذكاء اصطناعي في متغيرات البيئة (انسخ <code>.env.example</code>).</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>أرث التعليم العربي</b> — منصة تعليمية مفتوحة المصدر في مستودع <a href="https://github.com/samerhoureh/irth-education">irth-education</a></p>
+    <p>لكل طالب عربي معلمُ خصوصيٌّ يدعم مسيرته التعليمية ✦</p>
+    <div class="utm">
+      <p>تطوير وهندسة:</p>
+      <a href="https://utm.ae">UTM Technology — Dubai 🇦🇪 | utm.ae</a>
+      <p style="margin-top:6px">© 2025 UTM Technology — جميع الحقوق محفوظة</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

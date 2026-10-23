@@ -31,6 +31,24 @@
 | الذكاء الاصطناعي | بوابة موحّدة (`src/lib/ai`) — محادثة، رؤية، صوت إلى نص، نص إلى كلام |
 | الصوتيات | MediaRecorder API + خدمة ASR/TTS |
 
+## 👀 المعاينة الحية من خلال GitHub
+
+**صفحة الاستعراض (GitHub Pages):**
+> https://samerhoureh.github.io/irth-education
+
+جولة بصرية كاملة في المنصة بلقطات حقيقية من الواجهات.
+
+**تشغيل التطبيق الكامل بنقرة واحدة (GitHub Codespaces):**
+
+المستودع مهيأ ببيئة `.devcontainer` تُبنى وتُبذر قاعدة البيانات وتُشغّل الخادم تلقائياً:
+
+1. اضغط زر **Code** الأخضر في أعلى المستودع ← تبويب **Codespaces** ← **Create codespace**
+   (رابط مباشر: [فتح Codespace جديد](https://github.com/codespaces/new?hide_repo_select=true&repo=samerhoureh%2Firth-education))
+2. انتظر انتهاء الإعداد التلقائي — ستظهر حسابات تجريبية بكلمات مرور عشوائية في الطرفية
+3. افتح تبويب **Ports** بالأسفل واضغط على المنفذ **3000** لفتح المعاينة الحية
+
+> ملاحظة: وظائف المعلم الذكي تحتاج بوابة ذكاء اصطناعي — ضع `AI_GATEWAY_BASE_URL` و `AI_GATEWAY_API_KEY` في ملف `.env` (أو في Codespaces Secrets).
+
 ## 🚀 التشغيل السريع
 
 ```bash
